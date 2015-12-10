@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+
+        block meta
+
+        title Controle de Viagens
+
+        link(rel='stylesheet' href='/static/vendor/bootstrap/dist/css/bootstrap.min.css' type='text/css')
+        link(rel='stylesheet' href='/static/vendor/components-font-awesome/css/font-awesome.min.css' type='text/css')
+        link(rel='stylesheet' href='/static/stylesheets/style.css')
+
+        block stylesheets
+    body
+        block content
+
+        include ../includes/footer
+
+        script(src='/static/vendor/jquery/dist/jquery.min.js')
+        script(src='/static/vendor/bootstrap/dist/js/bootstrap.min.js')
+        
+        // IE10 viewport hack for Surface/desktop Windows 8 bug
+        script(src='/static/javascript/ie10-viewport-bug-workaround.js')
+
+        block javascripts

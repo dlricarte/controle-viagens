@@ -1,0 +1,27 @@
+{
+  "name": "controle-viagens",
+  "description": "Controle de viagens",
+  "main": "app.js",
+  "authors": [
+    "Rodrigo Gomes da Silva"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "controle",
+    "viagens"
+  ],
+  "homepage": "https://github.com/rodrigogs/controle-viagens",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "components-font-awesome": "~4.5.0"
+  }
+}

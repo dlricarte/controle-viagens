@@ -1,0 +1,37 @@
+{
+  "name": "controle-viagens",
+  "version": "0.0.1",
+  "description": "Controle de viagens",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigogs/controle-viagens.git"
+  },
+  "keywords": [
+    "controle",
+    "viagens"
+  ],
+  "author": "Rodrigo Gomes da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigogs/controle-viagens/issues"
+  },
+  "homepage": "https://github.com/rodrigogs/controle-viagens#readme",
+  "dependencies": {
+    "body-parser": "~1.14.1",
+    "cors": "~2.7.1",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "helmet": "^0.15.0",
+    "jade": "^1.11.0",
+    "mongoose": "^4.1.10",
+    "morgan": "~1.6.1"
+  },
+  "engines": {
+    "node": ">=4.2.1"
+  }
+}
