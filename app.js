@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 require('./config/mongoose');
 
 // Static resources
-app.use('/static', express.static(__dirname + '/app/public'));
+app.use('/static', express.static(`${__dirname} /app/public`));
 
 // View engine setup
 app.set('views', path.join(__dirname, 'app/views'));
