@@ -11,7 +11,9 @@ html(lang='en')
 
         link(rel='stylesheet' href='/static/vendor/bootstrap/dist/css/bootstrap.min.css' type='text/css')
         link(rel='stylesheet' href='/static/vendor/components-font-awesome/css/font-awesome.min.css' type='text/css')
-        link(rel='stylesheet' href='/static/stylesheets/style.css')
+        link(rel='stylesheet' href='/static/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' type='text/css')
+        
+        link(rel='stylesheet' href='/static/stylesheets/style.css' type='text/css')
 
         block stylesheets
     body
@@ -21,6 +23,10 @@ html(lang='en')
 
         script(src='/static/vendor/jquery/dist/jquery.min.js')
         script(src='/static/vendor/bootstrap/dist/js/bootstrap.min.js')
+        script(src='/static/vendor/moment/min/moment.min.js')
+        script(src='/static/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
+        
+        script(src='/static/javascript/application.js')
         
         // IE10 viewport hack for Surface/desktop Windows 8 bug
         script(src='/static/javascript/ie10-viewport-bug-workaround.js')

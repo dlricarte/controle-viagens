@@ -1,9 +1,17 @@
-body {
-  padding-top: 50px;
+/* Main logo  */
+.nav-logo {
+  margin-top: -0.38cm;
 }
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+
+@media(max-width:393px) {
+    .nav-logo {
+      display: none !important;
+    }
+}
+
+/* BODY */
+body {
+  padding-top: 70px;
 }
 
 /* FOOTER */
