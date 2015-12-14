@@ -1,0 +1,20 @@
+extends layouts/default
+
+block stylesheets
+
+block javascripts
+
+block content
+    include includes/messages
+
+    .panel.panel-primary
+        .panel-heading
+            h3.panel-title Informações Básicas
+        .panel-body
+            include includes/viagem-form
+                block buttons
+                    button.btn.btn-primary(type='submit') Salvar&nbsp
+                        span.glyphicon.glyphicon-floppy-saved(aria-hidden='true')
+                    form(action='/#{viagem._id}?_method=DELETE' method='POST')
+                        button.btn.btn-danger(type='submit' title='Excluir') Excluir&nbsp;
+                            span.glyphicon.glyphicon-floppy-remove(aria-hidden='true')

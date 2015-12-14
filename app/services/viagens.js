@@ -47,6 +47,19 @@ module.exports = {
             callback(null, viagem);
         });
     },
+
+    /**
+     * Get viagem
+     */
+    get: (id, callback) => {
+        ViagemSchema.findById(id, (err, viagem) => {
+            if (err) {
+                return callback(err);
+            }
+
+            callback(null, viagem);
+        });
+    },
     
     /**
      * Delete viagem

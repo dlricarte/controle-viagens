@@ -20,10 +20,6 @@ var ViagemSchema = new Schema({
         type: Date,
         default: null
     },
-    periodo: {
-        type: Date,
-        default: null
-    },
     data_criacao: {
         type: Date,
         default: new Date()

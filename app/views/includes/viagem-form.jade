@@ -1,0 +1,23 @@
+- var v = viagem || {};
+
+form(method='#{v._id ? "put" : "post" }')
+    input(name='id' type='hidden' value='#{v._id || ""}')
+
+    .row
+        .form-group.col-md-3
+            label(for='nome') Nome
+            input#nome.form-control(name='nome' type='text' placeholder='Nome' required value='#{v.nome || ""}')
+        .form-group.col-md-3
+            label(for='departamento') Departamento
+            input#departamento.form-control(name='departamento' type='text' placeholder='Departamento' value='#{v.departamento || ""}')
+        .form-group.col-md-3
+            label(for='autorizado-por') Autorizado Por
+            input#autorizado-por.form-control(name='autorizado_por' type='text' placeholder='Autorizado Por' value='#{v.autorizado_por || ""}')
+        .form-group.col-md-3
+            label(for='data-envio') Data de Envio
+            .input-group.date-picker
+                input#data-envio.form-control(name='data_envio' type='text' placeholder='Data de Envio'
+                    value='#{v.data_envio ? moment(v.data_envio).format("DD/MM/YYYY") : ""}')
+                .input-group-addon
+                    span.glyphicon.glyphicon-calendar
+    block buttons

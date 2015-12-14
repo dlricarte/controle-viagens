@@ -1,5 +1,6 @@
 $('.date-picker').datetimepicker({
-    format: 'DD/MM/YYYY'
+    format: 'DD/MM/YYYY',
+    locale: moment.locale('pt-br')
 });
 
 $('a[disabled]').on('click', function (e) {

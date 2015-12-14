@@ -40,7 +40,11 @@ app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'jade');
 
 // Flash messages
-app.use(session({ secret: 'whatever' })); // Depends on session
+app.use(session({
+    secret: 'whatever',
+    resave: false,
+    saveUninitialized: true
+})); // Depends on session
 app.use(flash());
 
 // Routes config
