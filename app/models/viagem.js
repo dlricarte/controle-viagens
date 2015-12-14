@@ -1,9 +1,9 @@
 'use strict';
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var ViagemSchema = new Schema({
+const ViagemSchema = new Schema({
     nome: {
         type: String,
         require: true
@@ -23,7 +23,11 @@ var ViagemSchema = new Schema({
     data_criacao: {
         type: Date,
         default: new Date()
-    }
+    },
+    percursos: [{
+        type: Schema.ObjectId,
+        ref: 'Percurso'
+    }]
 });
 
 ViagemSchema.post('validate', doc => {

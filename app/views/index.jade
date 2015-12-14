@@ -6,14 +6,14 @@ block javascripts
 
 block content
     include includes/messages
-
+    
     .panel.panel-primary
         .panel-heading Listagem de Itinerários
             .pull-right
                 button.btn.btn-default.btn-xs(data-toggle='collapse' data-target="#criar-itinerario-body") Criar Itinerário
         .panel-body#criar-itinerario-body.collapse
             include includes/viagem-form
-                block buttons
+                block viagem-buttons
                     button.btn.btn-primary(type='submit') Salvar&nbsp
                         span.glyphicon.glyphicon-floppy-saved(aria-hidden='true')
                     button.btn.btn-default(type='reset') Limpar&nbsp
@@ -35,7 +35,7 @@ block content
                             td= viagem.nome
                             td= viagem.departamento
                             td= viagem.autorizado_por
-                            td= viagem.data_envio ? moment(viagem.data_envio.toString()).format('DD/MM/YYYY') : ''
+                            td= DateUtils.toString(viagem.data_envio)
                             td(width='1%')
                                 a.btn.btn-success.btn-xs(href='/#{viagem._id}' title='Editar') Editar&nbsp;
                                     span.glyphicon.glyphicon-edit(aria-hidden='true')

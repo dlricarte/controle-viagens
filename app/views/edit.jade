@@ -12,9 +12,56 @@ block content
             h3.panel-title Informações Básicas
         .panel-body
             include includes/viagem-form
-                block buttons
+                block viagem-buttons
                     button.btn.btn-primary(type='submit') Salvar&nbsp
                         span.glyphicon.glyphicon-floppy-saved(aria-hidden='true')
                     form(action='/#{viagem._id}?_method=DELETE' method='POST')
                         button.btn.btn-danger(type='submit' title='Excluir') Excluir&nbsp;
                             span.glyphicon.glyphicon-floppy-remove(aria-hidden='true')
+    
+    .panel.panel-primary
+        .panel-heading Itinerário
+            .pull-right
+                button.btn.btn-default.btn-xs(data-toggle='collapse' data-target="#criar-percurso-body") Criar Percurso
+        .panel-body#criar-percurso-body.collapse
+            include includes/percurso-form
+                block percurso-buttons
+                    button.btn.btn-primary(type='submit') Salvar&nbsp
+                        span.glyphicon.glyphicon-floppy-saved(aria-hidden='true')
+
+        .table-responsive
+            table.table.table-bordered.table-hover
+                thead
+                    tr.active
+                        th Data
+                        th Descrição das Despesas
+                        th Passagem Aérea
+                        th Hospedagem
+                        th Transporte Terrestre
+                        th Refeições
+                        th Conferências
+                        th Refeições
+                        th Refeições
+                        th Refeições
+                        th Refeições
+                        th Refeições
+                tbody
+                    each percurso in viagem.percursos
+                        tr
+                            td= DateUtils.toString(percurso.data)
+                            td= DateUtils.toString(percurso.descricao_despesa)
+                            td= DateUtils.toString(percurso.passagem_aerea)
+                            td= DateUtils.toString(percurso.hospedagem)
+                            td= DateUtils.toString(percurso.transporte_terrestre)
+                            td= DateUtils.toString(percurso.refeicoes)
+                            td= DateUtils.toString(percurso.conferencias)
+                            td= DateUtils.toString(percurso.reembolso_quilometragem)
+                            td= DateUtils.toString(percurso.diversos)
+                            td= DateUtils.toString(percurso.taxa_cambial)
+                            td= DateUtils.toString(percurso.quilometros)
+                            td= DateUtils.toString(percurso.moeda)
+
+        // .panel-footer
+        //     .row.text-center
+        //         .col-lg-12
+        //             include includes/pagination

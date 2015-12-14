@@ -47,6 +47,19 @@ module.exports = {
             callback(null, viagem);
         });
     },
+    
+    /**
+     * Update viagem
+     */
+    update: (viagem, callback) => {
+        ViagemSchema.findByIdAndUpdate(viagem._id, viagem, (err, uViagem) => {
+            if (err) {
+                return callback(err);
+            }
+            
+            callback(null, viagem);
+        });
+    },
 
     /**
      * Get viagem
@@ -57,7 +70,13 @@ module.exports = {
                 return callback(err);
             }
 
-            callback(null, viagem);
+            ViagemSchema.populate(viagem, 'percursos', (err, viagem) => {
+                if (err) {
+                    return callback(err);
+                }
+                
+                callback(null, viagem);
+            });
         });
     },
     

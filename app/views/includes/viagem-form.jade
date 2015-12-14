@@ -1,6 +1,6 @@
 - var v = viagem || {};
 
-form(method='#{v._id ? "put" : "post" }')
+form(action='#{v._id ? "/" + v._id + "?_method=PUT" : ""}' method='post')
     input(name='id' type='hidden' value='#{v._id || ""}')
 
     .row
@@ -17,7 +17,7 @@ form(method='#{v._id ? "put" : "post" }')
             label(for='data-envio') Data de Envio
             .input-group.date-picker
                 input#data-envio.form-control(name='data_envio' type='text' placeholder='Data de Envio'
-                    value='#{v.data_envio ? moment(v.data_envio).format("DD/MM/YYYY") : ""}')
+                    value='#{DateUtils.toString(v.data_envio)}')
                 .input-group-addon
                     span.glyphicon.glyphicon-calendar
-    block buttons
+    block viagem-buttons

@@ -1,8 +1,7 @@
 'use strict';
 
-const moment = require('moment');
-
 const ViagensService = require('../services/viagens');
+const DateUtils = require('../utils/date');
 
 module.exports = {
 
@@ -34,8 +33,7 @@ module.exports = {
             nome: req.body.nome,
             departamento: req.body.departamento,
             autorizado_por: req.body.autorizado_por,
-            data_envio: moment(req.body.data_envio, 'DD/MM/YYYY').isValid() ?
-                moment(req.body.data_envio, 'DD/MM/YYYY').toDate() : null
+            data_envio: DateUtils.toDate(req.body.data_envio)
         };
 
         ViagensService.create(viagem, (err, viagem) => {
@@ -43,6 +41,7 @@ module.exports = {
                 return next(err);
             }
 
+            req.flash('info', `Registro ${viagem._id} criado com sucesso`);
             res.redirect(`/${viagem._id}`);
         });
     },
@@ -57,7 +56,7 @@ module.exports = {
             if (err) {
                 return next(err);
             }
-
+            
             res.render('edit', {viagem: viagem});
         });
     },
@@ -66,7 +65,22 @@ module.exports = {
      * Update action
      */
     update: (req, res, next) => {
+        let viagem = {
+            _id:            req.body.id,
+            nome:           req.body.nome,
+            departamento:   req.body.departamento,
+            autorizado_por: req.body.autorizado_por,
+            data_envio:     DateUtils.toDate(req.body.data_envio)
+        };
 
+        ViagensService.update(viagem, (err, viagem) => {
+            if (err) {
+                return next(err);
+            }
+        
+            req.flash('info', `Registro ${viagem._id} atualizado com sucesso`);
+            res.redirect(`/${viagem._id}`);
+        });
     },
 
     /**

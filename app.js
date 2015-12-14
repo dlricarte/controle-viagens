@@ -10,11 +10,11 @@ const favicon = require('serve-favicon');
 const flash = require('flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
-const moment = require('moment');
+const DateUtils = require('./app/utils/date');
 
 const app = express();
 
-app.locals.moment = moment;
+app.locals.DateUtils = DateUtils;
 
 app.use(helmet());
 app.use(cors());
