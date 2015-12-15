@@ -36,7 +36,7 @@ form(action='#{p._id ? "/percurso/" + p._id + "?_method=PUT" : "/percurso/"}' me
             input#diversos.currency.form-control(name='diversos' type='text' placeholder='Diversos' value='#{p.diversos || ""}')
         .form-group.col-md-3
             label(for='taxa-cambial') Taxa Cambial
-            input#taxa-cambial.currency.form-control(name='taxa_cambial' type='text' placeholder='Taxa Cambial' value='#{p.taxa_cambial || ""}')
+            input#taxa-cambial.form-control(name='taxa_cambial' type='number' placeholder='Taxa Cambial' value='#{p.taxa_cambial || ""}')
         .form-group.col-md-3
             label(for='quilometros') Quilômetros
             input#quilometros.form-control(name='quilometros' type='number' placeholder='Quilometros' value='#{p.quilometros || ""}')

@@ -31,11 +31,13 @@
     "flash": "^1.1.0",
     "helmet": "^0.15.0",
     "jade": "^1.11.0",
+    "jsreport": "^0.10.1",
     "method-override": "^2.3.5",
     "moment": "^2.10.6",
     "mongoose": "^4.1.10",
     "mongoose-currency": "^0.2.0",
     "morgan": "~1.6.1",
+    "numeral": "^1.5.3",
     "serve-favicon": "^2.3.0"
   },
   "engines": {

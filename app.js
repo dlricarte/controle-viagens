@@ -11,10 +11,12 @@ const flash = require('flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const DateUtils = require('./app/utils/date');
+const CurrencyUtils = require('./app/utils/currency');
 
 const app = express();
 
 app.locals.DateUtils = DateUtils;
+app.locals.CurrencyUtils = CurrencyUtils;
 
 app.use(helmet());
 app.use(cors());

@@ -10,14 +10,15 @@ block content
     .panel.panel-primary
         .panel-heading Listagem de Itinerários
             .pull-right
-                button.btn.btn-default.btn-xs(data-toggle='collapse' data-target="#criar-itinerario-body") Criar Itinerário
+                button.btn.btn-default.btn-xs(data-toggle='collapse' data-target="#criar-itinerario-body") Criar Itinerário&nbsp
+                    span.glyphicon.glyphicon-plus(aria-hidden='true')
         .panel-body#criar-itinerario-body.collapse
             include includes/viagem-form
                 block viagem-buttons
                     button.btn.btn-primary(type='submit') Salvar&nbsp
                         span.glyphicon.glyphicon-floppy-saved(aria-hidden='true')
                     button.btn.btn-default(type='reset') Limpar&nbsp
-                        spane.glyphicon.glyphicon-erase(aria-hidden='true')
+                        span.glyphicon.glyphicon-erase(aria-hidden='true')
 
         .table-responsive
             table.table.table-bordered.table-hover

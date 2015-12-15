@@ -22,7 +22,8 @@ block content
     .panel.panel-primary
         .panel-heading Itinerário
             .pull-right
-                button.btn.btn-default.btn-xs(data-toggle='collapse' data-target="#criar-percurso-body") Criar Percurso
+                button.btn.btn-default.btn-xs(data-toggle='collapse' data-target="#criar-percurso-body") Criar Percurso&nbsp
+                    span.glyphicon.glyphicon-plus(aria-hidden='true')
         .panel-body#criar-percurso-body.collapse
             include includes/percurso-form
                 block percurso-buttons
@@ -45,28 +46,33 @@ block content
                         th Taxa Cambial
                         th Quilometros
                         th Moeda
+                        th Total
                         th
-                tbody
+                tbody(style='white-space: nowrap;')
                     each percurso in viagem.percursos
                         tr
                             td= DateUtils.toString(percurso.data)
                             td= percurso.descricao_despesa
-                            td= percurso.passagem_aerea
-                            td= percurso.hospedagem
-                            td= percurso.transporte_terrestre
-                            td= percurso.refeicoes
-                            td= percurso.conferencias
-                            td= percurso.reembolso_quilometragem
-                            td= percurso.diversos
+                            td= CurrencyUtils.format(percurso.passagem_aerea / 100)
+                            td= CurrencyUtils.format(percurso.hospedagem / 100)
+                            td= CurrencyUtils.format(percurso.transporte_terrestre / 100)
+                            td= CurrencyUtils.format(percurso.refeicoes / 100)
+                            td= CurrencyUtils.format(percurso.conferencias / 100)
+                            - var totalQuilometragem = ((percurso.quilometros || 0) * (viagem.taxa_quilometragem || 0));
+                            td= CurrencyUtils.format(totalQuilometragem / 100)
+                            td= CurrencyUtils.format(percurso.diversos / 100)
                             td= percurso.taxa_cambial
                             td= percurso.quilometros
                             td= percurso.moeda
+                            td= CurrencyUtils.format((percurso.passagem_aerea + percurso.hospedagem + percurso.transporte_terrestre + percurso.refeicoes + percurso.conferencias + totalQuilometragem + percurso.diversos) / 100)
                             td(width='1%')
                                 form(action='/percurso/#{percurso._id}?_method=DELETE' method='POST')
                                     button.btn.btn-danger.btn-xs(type='submit' title='Excluir') Excluir&nbsp;
                                         span.glyphicon.glyphicon-floppy-remove(aria-hidden='true')
-
-        // .panel-footer
-        //     .row.text-center
-        //         .col-lg-12
-        //             include includes/pagination
+        .panel-footer
+            a.btn.btn-danger
+                | PDF&nbsp
+                span.fa.fa-file-pdf-o
+            a.btn.btn-success(disabled)
+                | Excel&nbsp
+                span.fa.fa-file-excel-o

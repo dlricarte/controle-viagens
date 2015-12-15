@@ -30,7 +30,7 @@ module.exports = {
                         page: page,
                         pages: count / perPage
                     });
-                })
+                });
             });
     },
     

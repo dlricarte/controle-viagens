@@ -38,7 +38,7 @@ const PercursoSchema = new Schema({
         default: 0
     },
     taxa_cambial: {
-        type: mongoose.Types.Currency,
+        type: Number,
         default: 0
     },
     quilometros: {
