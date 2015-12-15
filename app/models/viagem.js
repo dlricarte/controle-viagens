@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+require('mongoose-currency').loadType(mongoose);
 
 const ViagemSchema = new Schema({
     nome: {
@@ -19,6 +20,10 @@ const ViagemSchema = new Schema({
     data_envio: {
         type: Date,
         default: null
+    },
+    taxa_quilometragem: {
+        type: mongoose.Types.Currency,
+        default: 0
     },
     data_criacao: {
         type: Date,

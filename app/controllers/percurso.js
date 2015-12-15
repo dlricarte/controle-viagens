@@ -1,6 +1,7 @@
 'use strict';
 
 const PercursoService = require('../services/percursos');
+const ViagensService = require('../services/viagens');
 const DateUtils = require('../utils/date');
 
 module.exports = {
@@ -31,6 +32,34 @@ module.exports = {
             
             req.flash('info', `Registro ${p._id} criado com sucesso`);
             res.redirect(`/${req.body['viagem.id']}`);
+        });
+    },
+
+    /**
+     * Delete percurso
+     */
+    delete: (req, res, next) => {
+        let id = req.params.id;
+
+        PercursoService.get(id, (err, percurso) => {
+            if (err) {
+                return next(err);
+            }
+
+            ViagensService.findByPercurso(percurso, (err, viagem) => {
+                if (err) {
+                    return next(err);
+                }
+
+                PercursoService.delete(percurso, err => {
+                    if (err) {
+                        return next(err);
+                    }
+
+                    req.flash('info', `Registro ${id} excluído com sucesso`);
+                    res.redirect(`/${viagem._id}`);
+                });
+            });
         });
     }
 };

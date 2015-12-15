@@ -40,26 +40,31 @@ block content
                         th Transporte Terrestre
                         th Refeições
                         th Conferências
-                        th Refeições
-                        th Refeições
-                        th Refeições
-                        th Refeições
-                        th Refeições
+                        th Reembolso Quilometragem
+                        th Diversos
+                        th Taxa Cambial
+                        th Quilometros
+                        th Moeda
+                        th
                 tbody
                     each percurso in viagem.percursos
                         tr
                             td= DateUtils.toString(percurso.data)
-                            td= DateUtils.toString(percurso.descricao_despesa)
-                            td= DateUtils.toString(percurso.passagem_aerea)
-                            td= DateUtils.toString(percurso.hospedagem)
-                            td= DateUtils.toString(percurso.transporte_terrestre)
-                            td= DateUtils.toString(percurso.refeicoes)
-                            td= DateUtils.toString(percurso.conferencias)
-                            td= DateUtils.toString(percurso.reembolso_quilometragem)
-                            td= DateUtils.toString(percurso.diversos)
-                            td= DateUtils.toString(percurso.taxa_cambial)
-                            td= DateUtils.toString(percurso.quilometros)
-                            td= DateUtils.toString(percurso.moeda)
+                            td= percurso.descricao_despesa
+                            td= percurso.passagem_aerea
+                            td= percurso.hospedagem
+                            td= percurso.transporte_terrestre
+                            td= percurso.refeicoes
+                            td= percurso.conferencias
+                            td= percurso.reembolso_quilometragem
+                            td= percurso.diversos
+                            td= percurso.taxa_cambial
+                            td= percurso.quilometros
+                            td= percurso.moeda
+                            td(width='1%')
+                                form(action='/percurso/#{percurso._id}?_method=DELETE' method='POST')
+                                    button.btn.btn-danger.btn-xs(type='submit' title='Excluir') Excluir&nbsp;
+                                        span.glyphicon.glyphicon-floppy-remove(aria-hidden='true')
 
         // .panel-footer
         //     .row.text-center

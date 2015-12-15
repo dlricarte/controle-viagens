@@ -18,31 +18,28 @@ form(action='#{p._id ? "/percurso/" + p._id + "?_method=PUT" : "/percurso/"}' me
             input#descricao-despesa.form-control(name='descricao_despesa' type='text' placeholder='Descrição Despesas' value='#{p.descricao_despesa || ""}')
         .form-group.col-md-3
             label(for='passagem-aerea') Passagem Aérea
-            input#passagem-aerea.form-control(name='passagem_aerea' type='text' placeholder='Passagem Aérea' value='#{p.passagem_aerea || ""}')
+            input#passagem-aerea.currency.form-control(name='passagem_aerea' type='text' placeholder='Passagem Aérea' value='#{p.passagem_aerea || ""}')
         .form-group.col-md-3
             label(for='hospedagem') Hospedagem
-            input#hospedagem.form-control(name='hospedagem' type='text' placeholder='Hospedagem' value='#{p.hospedagem || ""}')
+            input#hospedagem.currency.form-control(name='hospedagem' type='text' placeholder='Hospedagem' value='#{p.hospedagem || ""}')
         .form-group.col-md-3
             label(for='transporte-terrestre') Transporte Terrestre
-            input#transporte-terrestre.form-control(name='transporte_terrestre' type='text' placeholder='Transporte Terrestre' value='#{p.transporte_terrestre || ""}')
+            input#transporte-terrestre.currency.form-control(name='transporte_terrestre' type='text' placeholder='Transporte Terrestre' value='#{p.transporte_terrestre || ""}')
         .form-group.col-md-3
             label(for='refeicoes') Refeições
-            input#refeicoes.form-control(name='refeicoes' type='text' placeholder='Refeições' value='#{p.refeicoes || ""}')
+            input#refeicoes.currency.form-control(name='refeicoes' type='text' placeholder='Refeições' value='#{p.refeicoes || ""}')
         .form-group.col-md-3
             label(for='conferencias') Conferências
-            input#conferencias.form-control(name='conferencias' type='text' placeholder='Conferências' value='#{p.conferencias || ""}')
-        .form-group.col-md-3
-            label(for='reembolso-quilometragem') Reembolso Quilometragem
-            input#reembolso-quilometragem.form-control(name='reembolso_quilometragem' type='text' placeholder='Reembolso Quilometragem' value='#{p.reembolso_quilometragem || ""}')
+            input#conferencias.currency.form-control(name='conferencias' type='text' placeholder='Conferências' value='#{p.conferencias || ""}')
         .form-group.col-md-3
             label(for='diversos') Diversos
-            input#diversos.form-control(name='diversos' type='text' placeholder='Diversos' value='#{p.diversos || ""}')
+            input#diversos.currency.form-control(name='diversos' type='text' placeholder='Diversos' value='#{p.diversos || ""}')
         .form-group.col-md-3
             label(for='taxa-cambial') Taxa Cambial
-            input#taxa-cambial.form-control(name='taxa_cambial' type='text' placeholder='Taxa Cambial' value='#{p.taxa_cambial || ""}')
+            input#taxa-cambial.currency.form-control(name='taxa_cambial' type='text' placeholder='Taxa Cambial' value='#{p.taxa_cambial || ""}')
         .form-group.col-md-3
-            label(for='quilometros') Quilometros
-            input#quilometros.form-control(name='quilometros' type='text' placeholder='Quilometros' value='#{p.quilometros || ""}')
+            label(for='quilometros') Quilômetros
+            input#quilometros.form-control(name='quilometros' type='number' placeholder='Quilometros' value='#{p.quilometros || ""}')
         .form-group.col-md-3
             label(for='moeda') Moeda
             input#moeda.form-control(name='moeda' type='text' placeholder='Moeda' value='#{p.moeda || ""}')

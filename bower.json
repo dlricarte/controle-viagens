@@ -24,6 +24,7 @@
     "bootstrap": "~3.3.6",
     "components-font-awesome": "~4.5.0",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
-    "moment": "~2.10.6"
+    "moment": "~2.10.6",
+    "jquery-maskmoney": "~3.0.2"
   }
 }

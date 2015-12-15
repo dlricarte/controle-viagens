@@ -14,6 +14,9 @@ form(action='#{v._id ? "/" + v._id + "?_method=PUT" : ""}' method='post')
             label(for='autorizado-por') Autorizado Por
             input#autorizado-por.form-control(name='autorizado_por' type='text' placeholder='Autorizado Por' value='#{v.autorizado_por || ""}')
         .form-group.col-md-3
+            label(for='taxa-quilometragem') Reembolso por Quilômetro
+            input#taxa-quilometragem.currency.form-control(name='taxa_quilometragem' type='text' placeholder='Reembolso por Quilômetro' value='#{v.taxa_quilometragem || ""}')
+        .form-group.col-md-2
             label(for='data-envio') Data de Envio
             .input-group.date-picker
                 input#data-envio.form-control(name='data_envio' type='text' placeholder='Data de Envio'

@@ -88,8 +88,21 @@ module.exports = {
             if (err) {
                 return callback(err);
             }
-            
+
             callback();
+        });
+    },
+
+    /**
+     * Finds by percurso
+     */
+    findByPercurso: (percurso, callback) => {
+        ViagemSchema.findOne({ percursos: percurso }, (err, viagem) => {
+            if (err) {
+                return callback(err);
+            }
+
+            callback(null, viagem);
         });
     }
 };

@@ -30,10 +30,11 @@ module.exports = {
      */
     create: (req, res, next) => {
         let viagem = {
-            nome: req.body.nome,
-            departamento: req.body.departamento,
-            autorizado_por: req.body.autorizado_por,
-            data_envio: DateUtils.toDate(req.body.data_envio)
+            nome:               req.body.nome,
+            departamento:       req.body.departamento,
+            autorizado_por:     req.body.autorizado_por,
+            taxa_quilometragem: req.body.taxa_quilometragem,
+            data_envio:         DateUtils.toDate(req.body.data_envio)
         };
 
         ViagensService.create(viagem, (err, viagem) => {
@@ -66,11 +67,12 @@ module.exports = {
      */
     update: (req, res, next) => {
         let viagem = {
-            _id:            req.body.id,
-            nome:           req.body.nome,
-            departamento:   req.body.departamento,
-            autorizado_por: req.body.autorizado_por,
-            data_envio:     DateUtils.toDate(req.body.data_envio)
+            _id:                req.body.id,
+            nome:               req.body.nome,
+            departamento:       req.body.departamento,
+            autorizado_por:     req.body.autorizado_por,
+            taxa_quilometragem: req.body.taxa_quilometragem,
+            data_envio:         DateUtils.toDate(req.body.data_envio)
         };
 
         ViagensService.update(viagem, (err, viagem) => {
@@ -87,7 +89,7 @@ module.exports = {
      * Delete action
      */
     delete: (req, res, next) => {
-        var id = req.params.id;
+        let id = req.params.id;
 
         ViagensService.delete(id, err => {
             if (err) {

@@ -4,7 +4,20 @@ const PercursoSchema = require('../models/percurso');
 const ViagemSchema = require('../models/viagem');
 
 module.exports = {
-    
+
+    /**
+     * Get percurso
+     */
+    get: (id, callback) => {
+        PercursoSchema.findById(id, (err, percurso) => {
+            if (err) {
+                return callback(err);
+            }
+
+            callback(null, percurso);
+        });
+    },
+
     /**
      * Create percurso
      */
@@ -29,6 +42,19 @@ module.exports = {
                 
                 callback(null, percurso);
             });
+        });
+    },
+
+    /**
+     * Delete percurso
+     */
+    delete: (id, callback) => {
+        PercursoSchema.findByIdAndRemove(id, err => {
+            if (err) {
+                return callback(err);
+            }
+
+            callback();
         });
     }
 };

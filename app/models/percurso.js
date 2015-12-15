@@ -33,10 +33,6 @@ const PercursoSchema = new Schema({
         type: mongoose.Types.Currency,
         default: 0
     },
-    reembolso_quilometragem: {
-        type: mongoose.Types.Currency,
-        default: 0
-    },
     diversos: {
         type: mongoose.Types.Currency,
         default: 0
