@@ -10,6 +10,7 @@ router
     .post('/', IndexController.create)
     .put('/:id', IndexController.update)
     .get('/:id', IndexController.edit)
-    .delete('/:id', IndexController.delete);
+    .delete('/:id', IndexController.delete)
+    .get('/print/:id', IndexController.print);
 
 module.exports = router;

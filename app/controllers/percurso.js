@@ -7,7 +7,7 @@ const DateUtils = require('../utils/date');
 module.exports = {
     
     /**
-     * Create percurso
+     * Create action
      */
     create: (req, res, next) => {
         let percurso = {
@@ -36,7 +36,7 @@ module.exports = {
     },
 
     /**
-     * Delete percurso
+     * Delete action
      */
     delete: (req, res, next) => {
         let id = req.params.id;

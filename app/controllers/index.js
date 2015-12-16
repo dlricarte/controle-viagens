@@ -99,5 +99,19 @@ module.exports = {
             req.flash('info', `Registro ${id} excluído com sucesso`);
             res.redirect('/');
         });
+    },
+
+    /**
+     * Print action
+     */
+    print: (req, res, next) => {
+        let id = req.params.id;
+        ViagensService.get(id, (err, viagem) => {
+            if (err) {
+                return next(err);
+            }
+            
+            res.render('reports/viagem', {viagem: viagem});
+        });
     }
 };

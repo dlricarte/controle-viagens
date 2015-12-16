@@ -29,6 +29,7 @@ module.exports = {
         
         format = format || DEFAULT_FORMAT;
         date = moment(date);
+        
         return date.isValid() ? date.format(format) : '';
     }
 };

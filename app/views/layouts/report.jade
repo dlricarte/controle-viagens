@@ -1,0 +1,31 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+
+        block meta
+
+        title Relatório
+
+        link(rel='stylesheet' href='/static/vendor/bootstrap/dist/css/bootstrap.min.css' type='text/css')
+        link(rel='stylesheet' href='/static/vendor/components-font-awesome/css/font-awesome.min.css' type='text/css')
+        
+        link(rel='stylesheet' href='/static/stylesheets/style.css' type='text/css')
+
+        block stylesheets
+    body
+        block content
+
+        script(src='/static/vendor/jquery/dist/jquery.min.js')
+        script(src='/static/vendor/jquery-maskmoney/dist/jquery.maskMoney.min.js')
+        script(src='/static/vendor/bootstrap/dist/js/bootstrap.min.js')
+        script(src='/static/vendor/moment/min/moment-with-locales.min.js')
+
+        script(src='/static/javascript/application.js')
+
+        // IE10 viewport hack for Surface/desktop Windows 8 bug
+        script(src='/static/javascript/ie10-viewport-bug-workaround.js')
+
+        block javascripts

@@ -1,39 +1,66 @@
-extends layouts/default
+extends ../layouts/report
 
 block stylesheets
 
 block javascripts
 
 block content
-    include includes/messages
+    h1.text-center Relatório de Despesas de Viagem
+    hr
 
-    .panel.panel-primary
-        .panel-heading
-            h3.panel-title Informações Básicas
-        .panel-body
-            include includes/viagem-form
-                block viagem-buttons
-                    button.btn.btn-primary(type='submit') Salvar&nbsp
-                        span.glyphicon.glyphicon-floppy-saved(aria-hidden='true')
-                    form(action='/#{viagem._id}?_method=DELETE' method='POST')
-                        button.btn.btn-danger(type='submit' title='Excluir') Excluir&nbsp;
-                            span.glyphicon.glyphicon-floppy-remove(aria-hidden='true')
+    .row
+        .col-xs-12
+            .row
+                // 1
+                .col-xs-6.col-sm-3
+                    strong
+                        p.text-right Nome
+                .col-xs-6.col-sm-3
+                    p #{viagem.nome}
+                    
+                .clearfix.visible-xs-block
+                    
+                // 2
+                .col-xs-6.col-sm-3
+                    strong
+                        p.text-right Autorizado Por
+                .col-xs-6.col-sm-3
+                    p #{viagem.autorizado_por}
+    .row
+        .col-xs-12
+            .row
+                // 1
+                .col-xs-6.col-sm-3
+                    strong
+                        p.text-right Departamento
+                .col-xs-6.col-sm-3
+                    p #{viagem.departamento}
+                    
+                .clearfix.visible-xs-block
+                    
+                // 2
+                .col-xs-6.col-sm-3
+                    strong
+                        p.text-right Data de Envio
+                .col-xs-6.col-sm-3
+                    p #{DateUtils.toString(viagem.data_envio)}
+    .row
+        .col-xs-12
+            .row
+                // 1
+                .col-xs-6.col-sm-3
+                    strong
+                        p.text-right Período
+                .col-xs-6.col-sm-3
+                    p #{DateUtils.toString(new Date())}
     
-    .panel.panel-primary
-        .panel-heading Itinerário
-            .pull-right
-                button.btn.btn-default.btn-xs(data-toggle='collapse' data-target="#criar-percurso-body") Criar Percurso&nbsp
-                    span.glyphicon.glyphicon-plus(aria-hidden='true')
-        .panel-body#criar-percurso-body.collapse
-            include includes/percurso-form
-                block percurso-buttons
-                    button.btn.btn-primary(type='submit') Salvar&nbsp
-                        span.glyphicon.glyphicon-floppy-saved(aria-hidden='true')
-
-        .table-responsive
+    hr
+            
+    .row
+        .col-xs-12
             table.table.table-bordered.table-hover
                 thead
-                    tr.info
+                    tr.active
                         th Data
                         th Descrição das Despesas
                         th Passagem Aérea
@@ -47,12 +74,11 @@ block content
                         th Quilômetros
                         th Moeda
                         th Total
-                        th
                 tbody
                     - var totais = [];
                     each percurso in viagem.percursos
                         tr
-                            td.nowrap= DateUtils.toString(percurso.data)
+                            td= DateUtils.toString(percurso.data)
                             td= percurso.descricao_despesa
                             td.nowrap= CurrencyUtils.format(percurso.passagem_aerea / 100)
                             td.nowrap= CurrencyUtils.format(percurso.hospedagem / 100)
@@ -62,16 +88,12 @@ block content
                             - var totalQuilometragem = ((percurso.quilometros || 0) * (viagem.taxa_quilometragem || 0));
                             td.nowrap= CurrencyUtils.format(totalQuilometragem / 100)
                             td.nowrap= CurrencyUtils.format(percurso.diversos / 100)
-                            td.nowrap= percurso.taxa_cambial
-                            td.nowrap= percurso.quilometros
-                            td.nowrap= percurso.moeda
+                            td= percurso.taxa_cambial
+                            td= percurso.quilometros
+                            td= percurso.moeda
                             - var total = ((percurso.passagem_aerea + percurso.hospedagem + percurso.transporte_terrestre + percurso.refeicoes + percurso.conferencias + totalQuilometragem + percurso.diversos) / 100) * (percurso.taxa_cambial || 0)
                             - totais.push(total);
                             td.nowrap= CurrencyUtils.format(total)
-                            td(width='1%')
-                                form(action='/percurso/#{percurso._id}?_method=DELETE' method='POST')
-                                    button.btn.btn-danger.btn-xs(type='submit' title='Excluir') Excluir&nbsp;
-                                        span.glyphicon.glyphicon-floppy-remove(aria-hidden='true')
                 tfoot.bold
                     tr.active
                         td Total
@@ -88,8 +110,3 @@ block content
                         td.nowrap= ArrayUtils.sum(viagem.percursos, 'quilometros')
                         td
                         td.nowrap= CurrencyUtils.format(ArrayUtils.sum(totais))
-                        td
-        .panel-footer
-            a.btn.btn-danger(href='/print/#{viagem.id}' target='_blank')
-                | Relatório&nbsp
-                span.glyphicon.glyphicon-list-alt

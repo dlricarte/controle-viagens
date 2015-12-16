@@ -30,3 +30,12 @@ footer a {
 footer i {
   margin: 0 5px;
 }
+
+/* GENERAL */
+.nowrap {
+    white-space: nowrap;
+}
+
+.bold tr>td {
+    font-weight: bold
+}

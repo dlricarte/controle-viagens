@@ -12,11 +12,13 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const DateUtils = require('./app/utils/date');
 const CurrencyUtils = require('./app/utils/currency');
+const ArrayUtils = require('./app/utils/array');
 
 const app = express();
 
 app.locals.DateUtils = DateUtils;
 app.locals.CurrencyUtils = CurrencyUtils;
+app.locals.ArrayUtils = ArrayUtils;
 
 app.use(helmet());
 app.use(cors());
