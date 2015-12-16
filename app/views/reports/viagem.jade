@@ -52,7 +52,8 @@ block content
                     strong
                         p.text-right Período
                 .col-xs-6.col-sm-3
-                    p #{DateUtils.toString(new Date())}
+                    - var dataFinal = viagem.percursos.reduce(function (a, b) { return a.data > b.data ? a.data : b.data; });
+                    p #{DateUtils.toString(dataFinal)}
     
     hr
             
