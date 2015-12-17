@@ -13,11 +13,19 @@ const ViagemSchema = new Schema({
         type: String,
         default: ''
     },
+    destino: {
+        type: String,
+        default: ''
+    },
     autorizado_por: {
         type: String,
         default: ''
     },
     data_envio: {
+        type: Date,
+        default: null
+    },
+    data_retorno: {
         type: Date,
         default: null
     },

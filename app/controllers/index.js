@@ -11,7 +11,7 @@ module.exports = {
     index: (req, res, next) => {
         const page = req.query.page || 0;
 
-        ViagensService.list(page, (err, retorno) => {
+        ViagensService.list(null, page, (err, retorno) => {
             if (err) {
                 return next(err);
             }
@@ -32,9 +32,11 @@ module.exports = {
         let viagem = {
             nome:               req.body.nome,
             departamento:       req.body.departamento,
+            destino:            req.body.destino,
             autorizado_por:     req.body.autorizado_por,
             taxa_quilometragem: req.body.taxa_quilometragem,
-            data_envio:         DateUtils.toDate(req.body.data_envio)
+            data_envio:         DateUtils.toDate(req.body.data_envio),
+            data_retorno:       DateUtils.toDate(req.body.data_retorno)
         };
 
         ViagensService.create(viagem, (err, viagem) => {
@@ -70,9 +72,11 @@ module.exports = {
             _id:                req.body.id,
             nome:               req.body.nome,
             departamento:       req.body.departamento,
+            destino:            req.body.destino,
             autorizado_por:     req.body.autorizado_por,
             taxa_quilometragem: req.body.taxa_quilometragem,
-            data_envio:         DateUtils.toDate(req.body.data_envio)
+            data_envio:         DateUtils.toDate(req.body.data_envio),
+            data_retorno:       DateUtils.toDate(req.body.data_retorno)
         };
 
         ViagensService.update(viagem, (err, viagem) => {
@@ -112,6 +116,19 @@ module.exports = {
             }
             
             res.render('reports/viagem', {viagem: viagem});
+        });
+    },
+    
+    /**
+     * PrintViagens action
+     */
+    printViagens: (req, res, next) => {
+        ViagensService.findAllEmViagem((err, viagens) => {
+            if (err) {
+                return next(err);
+            }
+            
+            res.render('reports/em-viagem', {viagens: viagens});
         });
     }
 };

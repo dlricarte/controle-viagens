@@ -11,6 +11,7 @@ router
     .put('/:id', IndexController.update)
     .get('/:id', IndexController.edit)
     .delete('/:id', IndexController.delete)
+    .get('/print/viagens', IndexController.printViagens)
     .get('/print/:id', IndexController.print);
 
 module.exports = router;

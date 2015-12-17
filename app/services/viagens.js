@@ -7,7 +7,7 @@ module.exports = {
     /**
      * List viagens
      */
-    list: (page, callback) => {
+    list: (query, page, callback) => {
         const perPage = 10;
         page = Math.max(0, page);
         
@@ -15,6 +15,7 @@ module.exports = {
             .limit(perPage)
             .skip(perPage * page)
             .sort('data_criacao')
+            .where(query || '')
             .exec((err, viagens) => {
                 if (err) {
                     return callback(err);
@@ -104,5 +105,25 @@ module.exports = {
 
             callback(null, viagem);
         });
+    },
+    
+    /**
+     * Finds all em viagem
+     */
+    findAllEmViagem: (callback) => {
+        let hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
+        
+        ViagemSchema
+            .find()
+            .where('data_envio').lte(hoje)
+            .where('data_retorno').gte(hoje)
+            .exec((err, viagens) => {
+                if (err) {
+                    return callback(err);
+                }
+                
+                callback(null, viagens);
+            });
     }
 };

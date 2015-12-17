@@ -8,20 +8,31 @@ form(action='#{v._id ? "/" + v._id + "?_method=PUT" : ""}' method='post')
             label(for='nome') Nome
             input#nome.form-control(name='nome' type='text' placeholder='Nome' required value='#{v.nome || ""}')
         .form-group.col-md-4
-            label(for='departamento') Departamento
+            label(for='departamento') Setor
             input#departamento.form-control(name='departamento' type='text' placeholder='Departamento' value='#{v.departamento || ""}')
         .form-group.col-md-4
-            label(for='autorizado-por') Autorizado Por
-            input#autorizado-por.form-control(name='autorizado_por' type='text' placeholder='Autorizado Por' value='#{v.autorizado_por || ""}')
+            label(for='destino') Destino
+            input#destino.form-control(name='destino' type='text' placeholder='Destino' value='#{v.destino || ""}')
     .row
         .form-group.col-md-4
-            label(for='taxa-quilometragem') Reembolso por Quilômetro
-            input#taxa-quilometragem.currency.form-control(name='taxa_quilometragem' type='text' placeholder='Reembolso por Quilômetro' value='#{v.taxa_quilometragem || ""}')
-        .form-group.col-md-4
-            label(for='data-envio') Data de Envio
+            label(for='data-envio') Ida
             .input-group.date-picker
                 input#data-envio.form-control(name='data_envio' type='text' placeholder='Data de Envio'
                     value='#{DateUtils.toString(v.data_envio)}')
                 .input-group-addon
                     span.glyphicon.glyphicon-calendar
+        .form-group.col-md-4
+            label(for='data-retorno') Ida
+            .input-group.date-picker
+                input#data-retorno.form-control(name='data_retorno' type='text' placeholder='Volta'
+                    value='#{DateUtils.toString(v.data_retorno)}')
+                .input-group-addon
+                    span.glyphicon.glyphicon-calendar
+                    
+        // .form-group.col-md-4
+        //     label(for='autorizado-por') Autorizado Por
+        //     input#autorizado-por.form-control(name='autorizado_por' type='text' placeholder='Autorizado Por' value='#{v.autorizado_por || ""}')
+        // .form-group.col-md-4
+        //     label(for='taxa-quilometragem') Reembolso por Quilômetro
+        //     input#taxa-quilometragem.currency.form-control(name='taxa_quilometragem' type='text' placeholder='Reembolso por Quilômetro' value='#{v.taxa_quilometragem || ""}')
     block viagem-buttons

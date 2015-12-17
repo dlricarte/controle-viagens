@@ -1,0 +1,27 @@
+extends ../layouts/report
+
+block stylesheets
+
+block javascripts
+
+block content
+    h1.text-center Relatório de Viagens
+
+    .row
+        .col-xs-12
+            table.table.table-bordered.table-hover
+                thead
+                    tr.active
+                        th Nome
+                        th Setor
+                        th Destino
+                        th Ida
+                        th Volta
+                tbody
+                    each viagem in viagens
+                        tr
+                            td= viagem.nome
+                            td= viagem.departamento
+                            td= viagem.destino
+                            td= DateUtils.toString(viagem.data_envio)
+                            td= DateUtils.toString(viagem.data_retorno)

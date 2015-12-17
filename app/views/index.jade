@@ -25,9 +25,10 @@ block content
                 thead
                     tr.info
                         th Nome
-                        th Departamento
-                        th Autorizado Por
-                        th Data de Envio
+                        th Setor
+                        th Destino
+                        th Ida
+                        th Volta
                         th
                         th
                 tbody
@@ -35,8 +36,9 @@ block content
                         tr
                             td= viagem.nome
                             td= viagem.departamento
-                            td= viagem.autorizado_por
+                            td= viagem.destino
                             td= DateUtils.toString(viagem.data_envio)
+                            td= DateUtils.toString(viagem.data_retorno)
                             td(width='1%')
                                 a.btn.btn-success.btn-xs(href='/#{viagem._id}' title='Editar') Editar&nbsp;
                                     span.glyphicon.glyphicon-edit(aria-hidden='true')
@@ -46,6 +48,9 @@ block content
                                         span.glyphicon.glyphicon-floppy-remove(aria-hidden='true')
 
         .panel-footer
+            a.btn.btn-danger(href='/print/viagens' target='_blank')
+                | Relatório&nbsp
+                span.glyphicon.glyphicon-list-alt
             .row.text-center
                 .col-lg-12
                     include includes/pagination
