@@ -22,7 +22,7 @@ form(action='#{v._id ? "/" + v._id + "?_method=PUT" : ""}' method='post')
                 .input-group-addon
                     span.glyphicon.glyphicon-calendar
         .form-group.col-md-4
-            label(for='data-retorno') Ida
+            label(for='data-retorno') Volta
             .input-group.date-picker
                 input#data-retorno.form-control(name='data_retorno' type='text' placeholder='Volta'
                     required value='#{DateUtils.toString(v.data_retorno)}')
