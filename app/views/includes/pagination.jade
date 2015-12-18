@@ -11,6 +11,6 @@ if pages
                     a(href='/?page=#{i}') #{i + 1}
 
             - var next = page + 1;
-            li(class="#{next > pages ? 'disabled' : ''}")
-                a(href='/?page=#{next}' aria-label='Next' disabled=next > pages)
+            li(class="#{next >= pages ? 'disabled' : ''}")
+                a(href='/?page=#{next}' aria-label='Next' disabled=next >= pages)
                     span(aria-hidden='true') &raquo;
