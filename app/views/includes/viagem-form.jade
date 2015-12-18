@@ -9,7 +9,7 @@ form(action='#{v._id ? "/" + v._id + "?_method=PUT" : ""}' method='post')
             input#nome.form-control(name='nome' type='text' placeholder='Nome' required value='#{v.nome || ""}')
         .form-group.col-md-4
             label(for='departamento') Setor
-            input#departamento.form-control(name='departamento' type='text' placeholder='Departamento' required value='#{v.departamento || ""}')
+            input#departamento.form-control(name='departamento' type='text' placeholder='Setor' required value='#{v.departamento || ""}')
         .form-group.col-md-4
             label(for='destino') Destino
             input#destino.form-control(name='destino' type='text' placeholder='Destino' required value='#{v.destino || ""}')
